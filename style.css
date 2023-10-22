@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+
+#calculator {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    border: 2px solid black;
+    padding: 20px;
+    
+}
+
+
+#results-bar {
+    height: 80px;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+
+#expression, #current-value {
+    height: 35px;
+}
+
+
+.one-row {
+    display: flex;
+    column-gap: 40px;
+}
+
+
+button {
+    width: 40px;
+    
+}
+
+
