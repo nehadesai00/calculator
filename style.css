@@ -24,7 +24,7 @@ body {
 }
 
 
-#expression, #current-value {
+#expression, #evaluated {
     height: 35px;
 }
 
@@ -37,7 +37,5 @@ body {
 
 button {
     width: 40px;
-    
+    cursor: pointer;
 }
-
-
