@@ -117,7 +117,13 @@ clearButton.addEventListener('click', () => {
 
 function evaluate(num1, num2, operator) {
     
-    if (operator === "+") {
+    if (num1 === "" || num2 === "") {
+        alert("Invalid operation!");
+        location.reload();
+        return "";
+    }
+
+    else if (operator === "+") {
         return String(Number(num1) + Number(num2));
     }
 
