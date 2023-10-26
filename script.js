@@ -35,6 +35,7 @@ for (let i = 0; i < numbers.length; i++) {
         
         else if (operatorRead === true) {
             num2 += numbers[i].textContent;
+            evaluated.textContent = "";
         }
         
         expression.textContent = expression.textContent + numbers[i].textContent;
@@ -53,20 +54,27 @@ for (let i = 0; i < operators.length; i++) {
 
             currOperator = operators[i].textContent;
             operatorRead = true;
-            expression.textContent = num1 + " " + operators[i].textContent + " ";
+            expression.textContent = num1 + " " + currOperator + " ";
             equalsFlag = false;
 
         }
 
         else if (operatorRead === true) {
-
+            
             result = evaluate(num1, num2, currOperator);
-            evaluated.textContent = "= " + result;
-            num1 = result;
-            num2 = "";
-            currOperator = operators[i].textContent;
-            expression.textContent = result + " " + operators[i].textContent + " ";
 
+            if (result === "") {
+                evaluated.textContent = "";
+            }
+            
+            else {
+                evaluated.textContent = "= " + result;
+                num1 = result;
+                num2 = "";
+                currOperator = operators[i].textContent;
+                expression.textContent = result + " " + currOperator + " ";
+            }
+            
         }
 
     });
@@ -77,10 +85,17 @@ for (let i = 0; i < operators.length; i++) {
 equalButton.addEventListener('click', () => {
 
     result = evaluate(num1, num2, currOperator);
-    evaluated.textContent = "= " + result;
-    num1 = result;
-    num2 = "";
-    equalsFlag = true;
+    
+    if (result === "") {
+        evaluated.textContent = "";
+    }
+
+    else {
+        evaluated.textContent = "= " + result;
+        num1 = result;
+        num2 = "";
+        equalsFlag = true;
+    }
 
 });
 
@@ -103,18 +118,33 @@ clearButton.addEventListener('click', () => {
 function evaluate(num1, num2, operator) {
     
     if (operator === "+") {
-        return Number(num1) + Number(num2);
+        return String(Number(num1) + Number(num2));
     }
 
     else if (operator === "-") {
-        return Number(num1) - Number(num2);
+        return String(Number(num1) - Number(num2));
     }
 
     else if (operator === "x") {
-        return Number(num1) * Number(num2);
+        return String(Number(num1) * Number(num2));
     }
 
     else if (operator === "/") {
-        return Number(num1) / Number(num2);
+        
+        if (num2 === "0") {
+            alert("You cannot divide by zero!");
+            location.reload();
+            return "";
+        }
+        
+        else if (Number(num1) % Number(num2) === 0) {
+            return String(Number(num1) / Number(num2));
+        }
+
+        else {
+            let divided = Number(num1) / Number(num2);
+            return divided.toFixed(2);
+        }
+
     }
 }
