@@ -1,41 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Nunito";
 }
 
 
+h1 {
+    font-weight: 100;
+    margin-top: 35px;
+} 
+
+
 #calculator {
-    margin-top: 150px;
+    margin-top: 35px;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 30px;
     border: 2px solid black;
-    padding: 20px;
-    
+    border-radius: 10px;
+    padding: 30px;
+    width: 380px;
+    height: 380px;
+    background-color: rgb(254, 239, 248);
 }
 
 
 #results-bar {
-    height: 80px;
+    height: 120px;
     border: 1px solid grey;
+    border-radius: 7px;
     display: flex;
     flex-direction: column;
     row-gap: 5px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    background-color: white;
 }
 
 
 #expression, #evaluated {
-    height: 35px;
+    height: 55px;
 }
 
 
 .one-row {
     display: flex;
-    column-gap: 40px;
+    justify-content: space-between;
 }
 
 
 button {
-    width: 40px;
+    width: 60px;
+    height: 30px;
     cursor: pointer;
+    border: 1px solid grey;
+    border-radius: 9px;
+    font-size: 19px;
+    font-family: "Nunito";
+
+}
+
+
+.operator {
+    background-color: rgb(227, 250, 250);
+}
+
+
+.number {
+    background-color: rgb(232, 230, 230);
+}
+
+
+#clear {
+    background-color: rgb(250, 205, 205);
+}
+
+
+#equals {
+    background-color: rgb(231, 212, 249);
 }
